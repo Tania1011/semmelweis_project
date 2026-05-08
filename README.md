@@ -218,8 +218,8 @@ if (!el || !data || data.empty) return;
 ## 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
-cd semmelweis-analysis
+git clone https://github.com/Tania1011/semmelweis_project.git
+cd semmelweis-project
 ```
 
 ---
@@ -360,11 +360,6 @@ Visualizes:
 
 # 📷 Preview
 
-### Home Page
-![Home Page](screenshots/home.png)
-
----
-
 
 ### Dashboard Page
 ![Dashboard](screenshots/Semmelweis_Analysis.png)
@@ -377,7 +372,9 @@ Visualizes:
 ---
 
 ### Statistical Analysis Page
-![analysis_results](screenshots/analysis_results.png)
+![analysis_results](screenshots/Yearly_Statistics.png)
+
+---
 
 # 📚 Historical Background
 
