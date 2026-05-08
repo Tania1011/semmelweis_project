@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'analysis',   #  added the analysis app, so Django discovers models, admin, and static files inside it.
 ]
 
 MIDDLEWARE = [
@@ -54,8 +55,8 @@ ROOT_URLCONF = 'semmelweis_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / "templates"],   # DIRS tells Django to look in the project-level templates/ folder first.
+        'APP_DIRS': True,                   # APP_DIRS: True - allows templates inside each app's own templates/ folder.
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -112,12 +113,27 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
+# ── Static files ──────────────────────────────────────────────────────────────
+# STATIC_URL is the URL prefix for serving static files.
+# STATICFILES_DIRS tells Django where to look for additional static files
+# that are NOT inside an app's static/ sub-folder.
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
-STATIC_URL = 'static/'
+
+# ── Media files ───────────────────────────────────────────────────────────────
+# MEDIA_URL / MEDIA_ROOT handle user-uploaded content (the portrait photo and
+# any files uploaded via the CSV import form).
+MEDIA_URL  = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
+
+# ── Primary key ───────────────────────────────────────────────────────────────
+# BigAutoField uses a 64-bit integer for primary keys — good practice for
+# tables that could grow large.
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
