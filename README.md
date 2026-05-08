@@ -152,8 +152,9 @@ semmelweis_project/         ← Django project root (created by startproject)
 └── media/
     └── uploads/
         └── semmelweis.jpeg ← doctor portrait 
----
 
+```
+---
 
 
 
